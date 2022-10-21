@@ -14,6 +14,7 @@
 		9626D0312902CC8400DA6152 /* MovieList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9626D02F2902CC8400DA6152 /* MovieList.xcdatamodeld */; };
 		9626D0332902CC8600DA6152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9626D0322902CC8600DA6152 /* Assets.xcassets */; };
 		9626D0362902CC8600DA6152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9626D0342902CC8600DA6152 /* LaunchScreen.storyboard */; };
+		9626D03E2902D0F500DA6152 /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626D03D2902D0F500DA6152 /* MoviesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9626D0322902CC8600DA6152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9626D0352902CC8600DA6152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9626D0372902CC8600DA6152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9626D03D2902D0F500DA6152 /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				9626D0342902CC8600DA6152 /* LaunchScreen.storyboard */,
 				9626D0372902CC8600DA6152 /* Info.plist */,
 				9626D02F2902CC8400DA6152 /* MovieList.xcdatamodeld */,
+				9626D03D2902D0F500DA6152 /* MoviesTableViewController.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				9626D02B2902CC8400DA6152 /* ViewController.swift in Sources */,
 				9626D0272902CC8400DA6152 /* AppDelegate.swift in Sources */,
 				9626D0312902CC8400DA6152 /* MovieList.xcdatamodeld in Sources */,
+				9626D03E2902D0F500DA6152 /* MoviesTableViewController.swift in Sources */,
 				9626D0292902CC8400DA6152 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
