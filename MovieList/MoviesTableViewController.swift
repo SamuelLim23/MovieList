@@ -14,6 +14,9 @@ struct Movie {
 class MovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var genre: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    
     
 }
 

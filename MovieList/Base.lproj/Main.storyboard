@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="97" width="390" height="747"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="VAd-5u-Pcz" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="66" id="VAd-5u-Pcz" customClass="MovieTableViewCell" customModule="MovieList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VAd-5u-Pcz" id="62J-fn-9Dk">
@@ -59,7 +59,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="movieTitle" destination="eOs-Ht-Iqr" id="0zn-RK-hO5"/>
+                                            <outlet property="genre" destination="Rwp-sQ-wfV" id="XMm-HD-BOZ"/>
+                                            <outlet property="movieTitle" destination="eOs-Ht-Iqr" id="Dxg-y2-8fb"/>
+                                            <outlet property="rating" destination="ReD-SL-HME" id="Ixv-QF-pLF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -87,6 +89,9 @@
                             <constraint firstItem="TdT-H0-ZwO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zyw-D0-aCi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="moviesTableView" destination="MDC-NS-bWI" id="UoW-TZ-4rf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
