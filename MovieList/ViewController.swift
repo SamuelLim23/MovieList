@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return moviesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,6 +54,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     
     struct SearchReponse: Codable { // or Decodable
         let Search: [Dictionary<String, String>]
@@ -61,18 +65,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(String(describing: searchBar.text!))
         let requestUrl = "https://www.omdbapi.com/?s=\(String(describing: searchBar.text!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!))&type=movie&apikey=65da5fbe"
-        print(requestUrl)
         let url = URL(string: requestUrl)
         let data = (try? Data(contentsOf: url!))!
         do {
             let res = try JSONDecoder().decode(SearchReponse.self, from: data)
-            
-            res.Search.enumerated().forEach{
-                moviesList[$0].title = $1["Title"]!
-                moviesList[$0].year = $1["Year"]!
-                moviesList[$0].id = $1["imdbID"]!
+            moviesList = []
+            res.Search.forEach{
+                moviesList.append(basicMovieInfo(title: $0["Title"]!, year: $0["Year"]!, id: $0["imdbID"]!))
+                
             }
             moviesTableView.reloadData()
         } catch let error {
@@ -115,7 +116,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let Response: String
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
         
         let requestUrl = "https://www.omdbapi.com/?i=\(moviesList[indexPath.row].id.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)&plot=full&type=movie&apikey=65da5fbe"
         print(requestUrl)
