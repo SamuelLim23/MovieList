@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var moviesTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
     
     
     override func viewDidLoad() {
@@ -20,6 +22,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         moviesTableView.dataSource = self
         searchBar.delegate = self
         searchBarSearchButtonClicked(searchBar) // Calls the first search
+        
+        
     }
     
     // Basic info for the search screen
@@ -42,6 +46,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let movie = moviesList[indexPath.row]
         cell.movieTitle?.text = movie.title
         cell.year?.text = movie.year
+        cell.movieId = movie.id
+        cell.favorited = false
         return cell
     }
     

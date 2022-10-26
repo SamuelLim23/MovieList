@@ -23,12 +23,11 @@ class MovieDetailsViewController: UIViewController {
         let url = URL(string: imageUrl!)
         let data = try? Data(contentsOf: url!)
         
-        coverImage.image = UIImage(data: data!)
+        coverImage.image = UIImage(data: data!) // Sets the imageview to image provided by the URL
         titleText.text = movieTitle!
         ratingText.text = rating!
         summaryText.text = summary!
         
-        // Do any additional setup after loading the view.
     }
     
 

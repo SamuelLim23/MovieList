@@ -9,6 +9,22 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="wPx-2s-Y2Z">
+            <objects>
+                <viewController id="1d9-Uj-Mgo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DJ4-RX-eHF">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Vg9-8n-GKY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mbv-h3-G6n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZR3-YO-O7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102" y="-651"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,12 +53,30 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwp-sQ-wfV">
-                                                            <rect key="frame" x="328" y="0.0" width="42" height="66"/>
+                                                            <rect key="frame" x="159.66666666666666" y="0.0" width="52.666666666666657" height="66"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwh-p8-YEO">
+                                                            <rect key="frame" x="320" y="0.0" width="50" height="66"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="FKu-2W-MaJ"/>
+                                                                <constraint firstAttribute="height" constant="50" id="hT4-Fd-THr"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="star" catalog="system" imagePlacement="top">
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                                                <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                                            </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="favoritesAction:" destination="VAd-5u-Pcz" eventType="touchUpInside" id="kQO-jf-UMy"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Rwp-sQ-wfV" firstAttribute="leading" secondItem="Adj-VC-sYh" secondAttribute="leading" constant="159.66666666666666" id="9VJ-iB-8JF"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -53,6 +87,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favoritesButton" destination="vwh-p8-YEO" id="Eog-hI-Drl"/>
                                             <outlet property="movieTitle" destination="eOs-Ht-Iqr" id="Dxg-y2-8fb"/>
                                             <outlet property="year" destination="Rwp-sQ-wfV" id="QHb-kf-eH3"/>
                                         </connections>
@@ -60,7 +95,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" text="Test" translatesAutoresizingMaskIntoConstraints="NO" id="TdT-H0-ZwO">
-                                <rect key="frame" x="0.0" y="47" width="390" height="50"/>
+                                <rect key="frame" x="0.0" y="47" width="297.33333333333331" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="uVi-2C-ULd"/>
                                 </constraints>
@@ -69,16 +104,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Yza-rS-6QY"/>
                                 </connections>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJl-ML-aRb">
+                                <rect key="frame" x="297.33333333333331" y="47" width="92.666666666666686" height="50"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Favorites"/>
+                                <connections>
+                                    <segue destination="1d9-Uj-Mgo" kind="show" id="7nW-Pb-i9b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MDC-NS-bWI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="2rn-u3-t6B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MDC-NS-bWI" secondAttribute="trailing" id="3yB-cF-Bui"/>
+                            <constraint firstItem="MDC-NS-bWI" firstAttribute="top" secondItem="nJl-ML-aRb" secondAttribute="bottom" id="4vh-66-BCO"/>
+                            <constraint firstItem="nJl-ML-aRb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7LJ-JZ-EDB"/>
                             <constraint firstAttribute="bottom" secondItem="MDC-NS-bWI" secondAttribute="bottom" id="OaT-J3-TaL"/>
                             <constraint firstItem="TdT-H0-ZwO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RDz-I5-SFo"/>
+                            <constraint firstItem="nJl-ML-aRb" firstAttribute="leading" secondItem="TdT-H0-ZwO" secondAttribute="trailing" id="Ra9-Ws-2kq"/>
+                            <constraint firstItem="nJl-ML-aRb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TyH-n2-Cjm"/>
                             <constraint firstItem="MDC-NS-bWI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lXA-zF-Bgi"/>
-                            <constraint firstItem="TdT-H0-ZwO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uT4-4P-YME"/>
+                            <constraint firstItem="nJl-ML-aRb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ohe-54-KuC"/>
+                            <constraint firstItem="nJl-ML-aRb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ugt-Ju-o6f"/>
                             <constraint firstItem="TdT-H0-ZwO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zyw-D0-aCi"/>
                         </constraints>
                     </view>
@@ -144,11 +192,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
