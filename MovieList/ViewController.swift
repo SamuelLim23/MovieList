@@ -15,8 +15,73 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
+    var savedMovies: [NSManagedObject] = []
+
+    func save(name: String) {
+      
+      guard let appDelegate =
+        UIApplication.shared.delegate as? AppDelegate else {
+        return
+      }
+      
+      // 1
+      let managedContext =
+        appDelegate.persistentContainer.viewContext
+      
+      // 2
+      let entity =
+        NSEntityDescription.entity(forEntityName: "SavedMovie",
+                                   in: managedContext)!
+      
+      let movie = NSManagedObject(entity: entity,
+                                   insertInto: managedContext)
+      
+      // 3
+      movie.setValue(name, forKeyPath: "name")
+      
+      // 4
+      do {
+        try managedContext.save()
+        savedMovies.append(movie)
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
+      }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      print("test")
+      //1
+      guard let appDelegate =
+        UIApplication.shared.delegate as? AppDelegate else {
+          return
+      }
+      
+      let managedContext =
+        appDelegate.persistentContainer.viewContext
+      
+      //2
+      let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: "SavedMovie")
+      
+      //3
+      do {
+        savedMovies = try managedContext.fetch(fetchRequest)
+          print(savedMovies.count)
+      } catch let error as NSError {
+        print("Could not fetch. \(error), \(error.userInfo)")
+      }
+    }
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        save(name: "test name 3")
+        print(savedMovies[0].value(forKeyPath: "name") as? String ?? "Failed")
+        print(savedMovies)
+        
+        
         // Do any additional setup after loading the view.
         moviesTableView.delegate = self
         moviesTableView.dataSource = self

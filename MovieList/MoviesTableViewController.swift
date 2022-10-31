@@ -26,7 +26,7 @@ class MovieTableViewCell: UITableViewCell {
             favoritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         }
         favorited.toggle()
-        print(favorited)
+        print(favorited!)
         
         
         
