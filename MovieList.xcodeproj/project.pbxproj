@@ -18,6 +18,7 @@
 		9626D03E2902D0F500DA6152 /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9626D03D2902D0F500DA6152 /* MoviesTableViewController.swift */; };
 		964191F62909681400E50F20 /* FavoriteMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 964191F42909681400E50F20 /* FavoriteMovies.xcdatamodeld */; };
 		964191F82909684100E50F20 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964191F72909684100E50F20 /* CoreDataManager.swift */; };
+		96988CE329114C150091E2B9 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96988CE229114C150091E2B9 /* AppData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9626D03D2902D0F500DA6152 /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		964191F52909681400E50F20 /* FavoriteMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteMovies.xcdatamodel; sourceTree = "<group>"; };
 		964191F72909684100E50F20 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		96988CE229114C150091E2B9 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		9626D01A2902CC8400DA6152 = {
 			isa = PBXGroup;
 			children = (
+				96988CE229114C150091E2B9 /* AppData.swift */,
 				9626D0252902CC8400DA6152 /* MovieList */,
 				9626D0242902CC8400DA6152 /* Products */,
 			);
@@ -161,6 +164,7 @@
 				9626D03E2902D0F500DA6152 /* MoviesTableViewController.swift in Sources */,
 				964191F82909684100E50F20 /* CoreDataManager.swift in Sources */,
 				9626D0292902CC8400DA6152 /* SceneDelegate.swift in Sources */,
+				96988CE329114C150091E2B9 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    var savedMovies: [NSManagedObject] = []
 
     func save(name: String) {
       
@@ -42,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       // 4
       do {
         try managedContext.save()
-        savedMovies.append(movie)
+          AppData.savedMovies.append(movie)
       } catch let error as NSError {
         print("Could not save. \(error), \(error.userInfo)")
       }
@@ -66,8 +65,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       
       //3
       do {
-        savedMovies = try managedContext.fetch(fetchRequest)
-          print(savedMovies.count)
+          AppData.savedMovies = try managedContext.fetch(fetchRequest)
+          print(AppData.savedMovies.count)
+          
       } catch let error as NSError {
         print("Could not fetch. \(error), \(error.userInfo)")
       }
@@ -76,10 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        save(name: "test name 3")
-        print(savedMovies[0].value(forKeyPath: "name") as? String ?? "Failed")
-        print(savedMovies)
+        super.viewDidLoad()        
         
         
         // Do any additional setup after loading the view.
