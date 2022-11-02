@@ -20,7 +20,7 @@ class MovieTableViewCell: UITableViewCell {
     var movieId: String!
     var favorited: Bool!
     
-    func save(name: String) {
+    func save() {
       
       guard let appDelegate =
         UIApplication.shared.delegate as? AppDelegate else {
@@ -40,7 +40,9 @@ class MovieTableViewCell: UITableViewCell {
                                    insertInto: managedContext)
       
       // 3
-      movie.setValue(name, forKeyPath: "name")
+        movie.setValue(movieTitle.text, forKeyPath: "name")
+        movie.setValue(movieId, forKey: "id")
+        movie.setValue(year.text, forKey: "year")
       
       // 4
       do {
@@ -53,7 +55,7 @@ class MovieTableViewCell: UITableViewCell {
       }
     }
     
-    func unsave(name: String){
+    func unsave(){
         guard let appDelegate =
           UIApplication.shared.delegate as? AppDelegate else {
           return
@@ -64,16 +66,20 @@ class MovieTableViewCell: UITableViewCell {
           appDelegate.persistentContainer.viewContext
         
         // 2
-        let entity =
-          NSEntityDescription.entity(forEntityName: "SavedMovie",
-                                     in: managedContext)!
+        
         do {
+            if let fooOffset = AppData.savedMovies.firstIndex(where: {($0.value(forKey: "id") as! String) == movieId}) {
+                print(managedContext.delete(AppData.savedMovies[fooOffset]))
+                AppData.savedMovies.remove(at: fooOffset)
+                
+                print(AppData.savedMovies.count)
+                print(fooOffset)
+            } else {
+                print("\(movieId!) could not be found")
+            }
           try managedContext.save()
             
-            print(managedContext.delete(AppData.savedMovies[0]))
-            AppData.savedMovies.remove(at: 0)
             
-            print(AppData.savedMovies.count)
 
             
         } catch let error as NSError {
@@ -87,10 +93,10 @@ class MovieTableViewCell: UITableViewCell {
         print(movieId!)
         if(favorited){
             favoritesButton.setImage(UIImage(systemName: "star"), for: .normal)
-            unsave(name: movieId)
+            unsave()
         } else{
             favoritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            save(name: movieId)
+            save()
         }
         favorited.toggle()
         

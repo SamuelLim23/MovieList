@@ -109,7 +109,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.movieTitle?.text = movie.title
         cell.year?.text = movie.year
         cell.movieId = movie.id
-        cell.favorited = false
+        
+        let isFavorited = AppData.savedMovies.contains(where: { $0.value(forKey: "id") as! String == movie.id})
+        if isFavorited {cell.favoritesButton.setImage(UIImage(systemName: "star.fill"), for: .normal)} else{
+            cell.favoritesButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+        cell.favorited = isFavorited // Sets the boolean of the star to whether or not the list of saved movies has a movie with the same id
         return cell
     }
     
@@ -201,6 +206,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // TODO: Check if segue destination is details or favorites
         let destinationNavigationController = segue.destination as! MovieDetailsViewController
         let targetController = destinationNavigationController
         
