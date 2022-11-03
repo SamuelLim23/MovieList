@@ -207,14 +207,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // TODO: Check if segue destination is details or favorites
-        let destinationNavigationController = segue.destination as! MovieDetailsViewController
-        let targetController = destinationNavigationController
+        if(segue.identifier == "movieDetails"){
+            let destinationNavigationController = segue.destination as! MovieDetailsViewController
+            let targetController = destinationNavigationController
+            
+            // Sets the variables in the second view controller
+            targetController.movieTitle = selectedTitle
+            targetController.imageUrl = selectedImageUrl
+            targetController.rating = selectedRating
+            targetController.summary = selectedSummary
+        } else{
+            
+        }
         
-        // Sets the variables in the second view controller
-        targetController.movieTitle = selectedTitle
-        targetController.imageUrl = selectedImageUrl
-        targetController.rating = selectedRating
-        targetController.summary = selectedSummary
         
     }
     

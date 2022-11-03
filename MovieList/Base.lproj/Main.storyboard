@@ -84,6 +84,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="mbv-h3-G6n"/>
+                    <connections>
+                        <outlet property="moviesTableView" destination="Yk6-Xm-roZ" id="YAr-Ai-XO8"/>
+                        <segue destination="1KP-rL-WF7" kind="presentation" identifier="movieDetails" id="8Qe-Dl-DgA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZR3-YO-O7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,7 +178,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Favorites"/>
                                 <connections>
-                                    <segue destination="1d9-Uj-Mgo" kind="show" id="7nW-Pb-i9b"/>
+                                    <segue destination="1d9-Uj-Mgo" kind="show" identifier="showFavorites" id="7nW-Pb-i9b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -256,6 +260,9 @@
             <point key="canvasLocation" x="864.61538461538464" y="3.5545023696682461"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Qe-Dl-DgA"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
